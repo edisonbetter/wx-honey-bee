@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.wx.honeybee.util;
+package org.ey.wx.honeybee.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

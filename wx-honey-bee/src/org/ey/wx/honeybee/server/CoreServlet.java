@@ -18,7 +18,7 @@ import org.ey.wx.honeybee.util.SignUtil;
  * @date 2013-JUL-25
  */
 public class CoreServlet extends HttpServlet {
-	private static final long serialVersionUID = 6601429757056780860L;
+	private static final long serialVersionUID = -7227963943179804529L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -37,6 +37,6 @@ public class CoreServlet extends HttpServlet {
 		out.close();
 		out = null;
 	}
-	
+
 	
 }

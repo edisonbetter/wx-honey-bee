@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @date 2013-JUL-25
  */
 public class SignUtil {
-	private static String token = "wx-honeybee"; //it should be consistent with the info from interface
+	private static String token = "wxhoneybeeey"; //it should be consistent with the info from interface
 	
 	public static boolean checkSignature(String signature, String timestamp, String nonce){
 		String[] params = {token, timestamp, nonce};

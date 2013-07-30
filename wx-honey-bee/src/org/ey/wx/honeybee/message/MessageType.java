@@ -10,6 +10,7 @@ package org.ey.wx.honeybee.message;
  * @date 2013-JUL-30
  */
 public enum MessageType {
+	XML("xml"),
 	TEXT("text"),
 	MUSIC("music"),
 	NEWS("news"),

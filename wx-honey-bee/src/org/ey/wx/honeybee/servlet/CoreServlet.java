@@ -29,11 +29,13 @@ public class CoreServlet extends HttpServlet {
 		String timestamp = req.getParameter("timestamp"); // Time stamp
 		String nonce = req.getParameter("nonce"); // random number
 		String echostr = req.getParameter("echostr"); // random string
+		System.out.println("I'm in doGet");
 		
 		PrintWriter out = resp.getWriter();
 		
 		if(SignUtil.checkSignature(signature, timestamp, nonce)){
 			out.print(echostr);
+			System.out.println("I have passed the checking");
 		}
 		
 		out.close();
@@ -47,6 +49,7 @@ public class CoreServlet extends HttpServlet {
 		req.setCharacterEncoding(CharacterEncodingType.UTF_8.toString());
 		resp.setCharacterEncoding(CharacterEncodingType.UTF_8.toString());
 		
+		System.out.println("I'm in doPost");
 		// process the request and return the result
 		String respMessage = CoreService.processRequest(req);
 		

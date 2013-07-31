@@ -35,6 +35,7 @@ public class SignUtil {
 		String tempString = StringUtil.byteToString(digest);
 		
 		content = null;
+		System.out.println(tempString);
 		// compare the digested string with the signature
 		return tempString != null ? tempString.equals(signature.toUpperCase()) : false; 
 	}

@@ -33,11 +33,11 @@ public class CoreService {
 			e.printStackTrace();
 		}
 
-		String msgType = requestMap.get(MessageParameter.MSG_TYPE);	
+		String msgType = requestMap.get(MessageParameter.MSG_TYPE.toString());	
 		respContent = "You sent " + msgType + " message";
 		
-		if(msgType.equals(MessageType.EVENT)){
-			String eventType = requestMap.get(MessageParameter.EVENT);
+		if(msgType.equals(MessageType.EVENT.toString())){
+			String eventType = requestMap.get(MessageParameter.EVENT.toString());
 			if(eventType.equals(EventType.SUBSCRIBE)){
 				respContent = "Thank you for following";
 			}

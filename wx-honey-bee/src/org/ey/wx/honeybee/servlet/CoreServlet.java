@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.ey.wx.honeybee.server;
+package org.ey.wx.honeybee.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.ey.wx.honeybee.message.CharacterEncodingType;
+import org.ey.wx.honeybee.service.CoreService;
 import org.ey.wx.honeybee.util.SignUtil;
 
 /**
@@ -36,6 +38,21 @@ public class CoreServlet extends HttpServlet {
 		
 		out.close();
 		out = null;
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// set the character encoding to UTF-8 for both request and response
+		req.setCharacterEncoding(CharacterEncodingType.UTF_8.toString());
+		resp.setCharacterEncoding(CharacterEncodingType.UTF_8.toString());
+		
+		// process the request and return the result
+		String respMessage = CoreService.processRequest(req);
+		
+		PrintWriter out = resp.getWriter();
+		out.print(respMessage);
+		out.close();
 	}
 
 	

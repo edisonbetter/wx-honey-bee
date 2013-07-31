@@ -3,7 +3,7 @@
   <display-name>wx-honey-bee</display-name>
   <servlet>
   	<servlet-name>coreServlet</servlet-name>
-  	<servlet-class>org.ey.wx.honeybee.server.CoreServlet</servlet-class>
+  	<servlet-class>org.ey.wx.honeybee.servlet.CoreServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>

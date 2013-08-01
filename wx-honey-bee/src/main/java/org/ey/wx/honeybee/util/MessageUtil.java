@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.transform.Source;
+import javax.xml.transform.dom.DOMSource;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -56,6 +58,8 @@ public class MessageUtil {
 	
 	public static String marchal(BaseMessage message){
 		xstream.alias(MessageType.XML.toString(), message.getClass());
+		xstream.aliasField("ToUserName", message.getClass(), "toUserName");
+		xstream.aliasField("ToUserName", message.getClass(), "toUserName");
 		return xstream.toXML(message);
 	}
 	

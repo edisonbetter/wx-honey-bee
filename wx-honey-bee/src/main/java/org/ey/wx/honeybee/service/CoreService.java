@@ -46,6 +46,7 @@ public class CoreService {
 		TextMessage textMessage = MessageFactory.createTextMessage(requestMap);
 		textMessage.setMessageContent(respContent);
 		
+		
 		respMessage = MessageUtil.marchal(textMessage);
 		return respMessage;
 	}

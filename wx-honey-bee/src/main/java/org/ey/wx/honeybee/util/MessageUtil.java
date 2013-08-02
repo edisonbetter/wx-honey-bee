@@ -59,7 +59,11 @@ public class MessageUtil {
 	public static String marchal(BaseMessage message){
 		xstream.alias(MessageType.XML.toString(), message.getClass());
 		xstream.aliasField("ToUserName", message.getClass(), "toUserName");
-		xstream.aliasField("ToUserName", message.getClass(), "toUserName");
+		xstream.aliasField("FromUserName", message.getClass(), "fromUserName");
+		xstream.aliasField("CreateTime", message.getClass(), "creationTime");
+		xstream.aliasField("MsgType", message.getClass(), "messageType");
+		xstream.aliasField("Content", message.getClass(), "messageContent");
+		
 		return xstream.toXML(message);
 	}
 	

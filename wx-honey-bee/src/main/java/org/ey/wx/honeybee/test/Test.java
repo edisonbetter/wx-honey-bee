@@ -17,12 +17,13 @@ public class Test {
 	
 	@org.junit.Test
 	public void test() {
-		//for(int i=0; i<100000; i++){
+		//for(int i=0; i<1000; i++){
 			logger.debug("This is a debug message");
 			logger.info("This is a info message");
 			logger.warn("This is a warn message");
 			logger.fatal("This is a fatal message");
 			logger.error("This is a error message");
+			
 		//}
 		
 	}

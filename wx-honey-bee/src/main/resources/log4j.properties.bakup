@@ -1,0 +1,56 @@
+### Define the root logger with appender file ###
+log4j.rootLogger=INFO, genLog, errLog, stdout
+
+### Hibernate SQL log ###
+log4j.category.org.hibernate.SQL=trace
+# Output the SQL parameters value
+log4j.category.org.hibernate.type=trace
+
+### Define the general log file appender ###
+log4j.appender.genLog=org.apache.log4j.DailyRollingFileAppender
+# Set the name of the file
+log4j.appender.genLog.File=C\:\\Logs\\general.log
+# Set the immediate flush to true (default)
+log4j.appender.genLog.ImmediateFlush=true
+# Set the threshold to debug mode
+log4j.appender.genLog.Threshold=trace
+# Set the date pattern for scheduler, the log file will rollover at midnight echa day
+log4j.appender.genLog.DatePattern='.'yyyy-MM-dd
+# Set the append to false, overwrite
+log4j.appender.genLog.Append=false
+# Define the layout for file appender
+log4j.appender.genLog.layout=org.apache.log4j.PatternLayout
+# %d used to output date and time, the default format is ISO8601
+# [%-5p] used to output priority's minimum length is 5, and it's left justified
+# %c used to output the category of the logging event, usually it's full class path
+# %m used to output the logging message
+# %n used to output the line spearator 
+log4j.appender.genLog.layout.conversionPattern=%d [%-5p] %c - %m%n
+
+### Define the error log file appender ###
+log4j.appender.errLog=org.apache.log4j.DailyRollingFileAppender
+# Set the name of the file
+log4j.appender.errLog.File=C\:\\Logs\\error.log
+# Set the immediate flush to true (default)
+log4j.appender.errLog.ImmediateFlush=true
+# Set the threshold to error level
+log4j.appender.errLog.Threshold=error
+# Set the date pattern for scheduler, the log file will rollover at midnight each day
+log4j.appender.errLog.DatePattern='.'yyyy-MM-dd
+# Set the append to false, overwrite
+log4j.appender.errLog.Append=false
+# Define the layout for file appender
+log4j.appender.errLog.layout=org.apache.log4j.PatternLayout
+# %d used to output date and time, the default format is ISO8601
+# [%-5p] used to output priority's minimum length is 5, and it's left justified
+# %c used to output the category of the logging event, usually it's full class path
+# %m used to output the logging message
+# %n used to output the line spearator 
+log4j.appender.errLog.layout.conversionPattern=%d [%-5p] %c - %m%n
+
+### direct log messages to stdout ###
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.Threshold=trace
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %t %c{1}:%L - %m%n

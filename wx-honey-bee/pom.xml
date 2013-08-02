@@ -29,6 +29,18 @@
 		  <groupId>log4j</groupId>
 		  <artifactId>log4j</artifactId>
 		  <version>1.2.17</version>
+      </dependency>
+      <dependency>
+		  <groupId>commons-logging</groupId>
+		  <artifactId>commons-logging</artifactId>
+	      <version>1.1.3</version>
+	  </dependency>
+      <dependency>
+		  <groupId>log4j</groupId>
+		  <artifactId>log4j-adapter</artifactId>
+		  <version>1.0.0</version>
+		  <scope>system</scope>
+		  <systemPath>${project.basedir}/lib/log4j-adapter-1.0.0.jar</systemPath>
       </dependency>    
   </dependencies>
   <build>

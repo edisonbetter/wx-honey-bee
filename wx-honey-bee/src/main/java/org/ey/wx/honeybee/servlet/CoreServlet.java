@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.ey.wx.honeybee.message.CharacterEncodingType;
 import org.ey.wx.honeybee.service.CoreService;
 import org.ey.wx.honeybee.util.SignUtil;
@@ -21,6 +23,7 @@ import org.ey.wx.honeybee.util.SignUtil;
  */
 public class CoreServlet extends HttpServlet {
 	private static final long serialVersionUID = -7227963943179804529L;
+	private static Log logger = LogFactory.getLog(CoreServlet.class);
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -29,13 +32,13 @@ public class CoreServlet extends HttpServlet {
 		String timestamp = req.getParameter("timestamp"); // Time stamp
 		String nonce = req.getParameter("nonce"); // random number
 		String echostr = req.getParameter("echostr"); // random string
-		System.out.println("I'm in doGet");
+		logger.debug("I'm in doGet");
 		
 		PrintWriter out = resp.getWriter();
 		
 		if(SignUtil.checkSignature(signature, timestamp, nonce)){
 			out.print(echostr);
-			System.out.println("I have passed the checking");
+			logger.debug("I have passed the checking");
 		}
 		
 		out.close();
@@ -49,7 +52,7 @@ public class CoreServlet extends HttpServlet {
 		req.setCharacterEncoding(CharacterEncodingType.UTF_8.toString());
 		resp.setCharacterEncoding(CharacterEncodingType.UTF_8.toString());
 		
-		System.out.println("I'm in doPost");
+		logger.debug("I'm in doPost");
 		// process the request and return the result
 		String respMessage = CoreService.processRequest(req);
 		

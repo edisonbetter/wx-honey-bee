@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.ey.wx.honeybee.message.EventType;
 import org.ey.wx.honeybee.message.MessageParameter;
 import org.ey.wx.honeybee.message.MessageType;
@@ -21,6 +23,7 @@ import org.ey.wx.honeybee.util.MessageUtil;
  * @date 2013-JUL-31
  */
 public class CoreService {
+	private static Log logger = LogFactory.getLog(CoreService.class);
 	
 	public static String processRequest(HttpServletRequest request){
 		String respMessage = null;
@@ -46,8 +49,8 @@ public class CoreService {
 		TextMessage textMessage = MessageFactory.createTextMessage(requestMap);
 		textMessage.setMessageContent(respContent);
 		
-		
 		respMessage = MessageUtil.marchal(textMessage);
+		logger.debug(respMessage);
 		return respMessage;
 	}
 }
